@@ -3,8 +3,8 @@ server:
 
 redisson:
   address: config://127.0.0.1:6379
-  password: 1qaz@WSX
-  timeout: 3000
+  #password: 1qaz@WSX
+  timeout: 10000
   connectionPoolSize: 64
   #最小空闲连接数
   connectionMinimumIdleSize: 10
@@ -12,8 +12,8 @@ redisson:
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/training?&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    password: 123456
+    url: jdbc:mysql://localhost:3306/redission_study?&autoReconnect=true&failOverReadOnly=false&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
 mybatis:
   mapper-locations: classpath:mapping/*.xml

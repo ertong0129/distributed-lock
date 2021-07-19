@@ -26,14 +26,14 @@ public class DistributedLockHandler {
         distributedLocker.lock(lockName,lessTime);
         System.out.println("上锁");
         try {
-            Thread.sleep(2000);
+            //Thread.sleep(30000);
             joinPoint.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         } finally {
             //如果该线程还持有该锁，那么释放该锁。如果该线程不持有该锁，说明该线程的锁已到过期时间，自动释放锁
-            System.out.println("释放");
             if (distributedLocker.isHeldByCurrentThread(lockName)) {
+                System.out.println("释放");
                 distributedLocker.unlock(lockName);
             }
         }

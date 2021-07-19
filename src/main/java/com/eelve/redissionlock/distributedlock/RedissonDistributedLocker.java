@@ -16,7 +16,8 @@ public class RedissonDistributedLocker implements DistributedLocker {
     @Override
     public RLock lock(String lockKey, int leaseTime) {
         RLock lock = redissonClient.getFairLock(lockKey);
-        lock.lock(leaseTime, TimeUnit.SECONDS);
+        //lock.lock(leaseTime, TimeUnit.SECONDS);
+        lock.lock();
         return lock;
     }
 
